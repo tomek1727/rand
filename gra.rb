@@ -1,11 +1,11 @@
 
 def newword()
   words = File.readlines("words.txt")
-  word = words[rand(words.length - 1)]
-  if word.length < 5 or word.length > 12
-     newword()
+  word = words.sample
+  if (5..12).include?(word.length)
+     word.downcase.chomp.split("")
   else
-    word.downcase.chomp.split("")
+    newword()
   end
 end
 
